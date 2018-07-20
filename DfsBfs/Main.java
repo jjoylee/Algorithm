@@ -21,7 +21,7 @@ public class Main {
 		
 		//dfs
 		dfs(START);
-		printResult(bw);
+		bw.write(String.valueOf(result.toString()));
 		bw.newLine();
 		
 		//reset 
@@ -29,7 +29,7 @@ public class Main {
 		
 		//bfs
 		bfs(START);
-		printResult(bw);
+		bw.write(String.valueOf(result.toString()));
 		
 		bw.flush();
 		br.close();
@@ -49,11 +49,6 @@ public class Main {
 			graph[Integer.parseInt(line[1])][Integer.parseInt(line[0])] = 1;
 		}
 		return START;
-	}
-
-	private static void printResult(BufferedWriter bw) throws IOException {
-		bw.write(String.valueOf(result.toString().replaceAll("\\[", "")
-				.replaceAll("\\]", "").replaceAll(",", "")));
 	}
 
 	private static void bfs(int start) {
