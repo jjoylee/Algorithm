@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
+//https://www.acmicpc.net/problem/11866
 public class Main {
 	static int COUNT;
 	static int ORDER;
@@ -52,3 +53,4 @@ public class Main {
 		}
 	}
 }
+	
