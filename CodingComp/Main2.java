@@ -25,8 +25,10 @@ public class Main2 {
 			}
 			
 			for(int n = 0 ; n < N ; n++){
-				if(totalScores[n] + N >= max)
-					Answer++;
+				if(totalScores[n] + N >= max){
+					Answer = totalScores.length - n;
+					break;
+				}
 			}
 			
 			System.out.println("Case #"+(test_case+1));
