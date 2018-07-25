@@ -72,13 +72,11 @@ public class Main {
 	}
 
 	private static void turnLeft(int gearIdx) {
-			gears[gearIdx].addLast(gears[gearIdx].getFirst());
-			gears[gearIdx].removeFirst();
+			gears[gearIdx].addLast(gears[gearIdx].pollFirst());
 	}
 
 	private static void turnRight(int gearIdx) {
-			gears[gearIdx].addFirst(gears[gearIdx].getLast());
-			gears[gearIdx].removeLast();
+			gears[gearIdx].addFirst(gears[gearIdx].pollLast());
 	}
 
 	private static void createGears(BufferedReader br) throws IOException {
