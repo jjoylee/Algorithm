@@ -32,6 +32,7 @@ public class Main {
 		if(checkLeft()){
 			 clean();
 			 count++;
+			 return;
 		}
 		// 동서남북 모두 청소 || 벽이 있을 시  -> 뒤가 벽인지 확인 후 벽이 아니면 이동
 		if(checkBehind()){
