@@ -15,6 +15,7 @@ public class Main {
 	static int[][] map;
 	static boolean[][] visited;
 	static int count = 1;
+	static int N, M;
 	public static void main(String[] args) throws IOException{
 		createMapAndRobot();
 		clean();
@@ -44,16 +45,21 @@ public class Main {
 	private static boolean checkBehind() {
 		int behindX = robot.x + dx[(robot.direction + 3) % 4];
 		int behindY = robot.y + dy[(robot.direction + 3) % 4];
-		return map[behindX][behindY] == 0;
+		if(isValidIdx(behindX, behindY)) return map[behindX][behindY] == 0;
+		return false;
 	}
 
+
+	private static boolean isValidIdx(int x, int y) {
+		return (x < N && x >= 0 && y < M && y >= 0);
+	}
 
 	private static boolean checkLeft() {
 		for(int time = 0 ; time < 4 ; time++){
 			int leftX = robot.x + dx[robot.direction];
 			int leftY = robot.y + dy[robot.direction];
 			robot.direction = directions[robot.direction];
-			if(visited[leftX][leftY] || map[leftX][leftY] == 1) continue;
+			if(!isValidIdx(leftX, leftY) || visited[leftX][leftY] || map[leftX][leftY] == 1) continue;
 			robot.x = leftX;
 			robot.y = leftY;
 			return true;
@@ -65,8 +71,8 @@ public class Main {
 	private static void createMapAndRobot() throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String[] line = br.readLine().split(" ");
-		int N = Integer.parseInt(line[0]);
-		int M = Integer.parseInt(line[1]);
+		N = Integer.parseInt(line[0]);
+		M = Integer.parseInt(line[1]);
 		map = new int[N][M];
 		visited = new boolean[N][M];
 		line = br.readLine().split(" ");
